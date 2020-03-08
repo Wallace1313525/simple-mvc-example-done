@@ -390,16 +390,7 @@ const updateLast = (req, res) => {
 
 
 const updateLastDog = (req, res) => {
-  // Your model is JSON, so just change a value in it.
-  // This is the benefit of ORM (mongoose) and/or object documents (Mongo NoSQL)
-  // You can treat objects just like that - objects.
-  // Normally you'd find a specific object, but we will only
-  // give the user the ability to update our last object
-    
-
-  // once you change all the object properties you want,
-  // then just call the Model object's save function
-  // create a new save promise for the database
+  lastAddedDog.age++;
   const savePromise = lastAddedDog.save();
 
   // send back the name as a success for now
