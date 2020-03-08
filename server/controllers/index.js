@@ -305,6 +305,7 @@ module.exports = {
   readCat,
   getName,
   setName,
+  setNameDog,
   updateLast,
   searchName,
   notFound,
