@@ -395,7 +395,9 @@ const updateLastDog = (req, res) => {
   // You can treat objects just like that - objects.
   // Normally you'd find a specific object, but we will only
   // give the user the ability to update our last object
-  //************************lastAddedDog.age++;
+    
+    
+  lastAddedDog.age++;
 
   // once you change all the object properties you want,
   // then just call the Model object's save function
@@ -432,6 +434,7 @@ module.exports = {
   page1: hostPage1,
   page2: hostPage2,
   page3: hostPage3,
+  page3: hostPage4,
   readCat,
   readDog,
   getName,
