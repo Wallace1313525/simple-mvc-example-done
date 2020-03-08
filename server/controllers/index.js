@@ -14,7 +14,7 @@ const defaultData = {
 const defaultDataDog = {
   name: 'unknown',
   age: 0,
-  breed: 'mutt'
+  breed: 'mutt',
 };
 
 // object for us to keep track of the last Cat we made and dynamically update it sometimes
@@ -68,7 +68,6 @@ const readAllDogs = (req, res, callback) => {
 };
 
 
-
 // function to find a specific cat on request.
 // Express functions always receive the request and the response.
 const readCat = (req, res) => {
@@ -116,7 +115,6 @@ const readDog = (req, res) => {
 };
 
 
-
 // function to handle requests to the page1 page
 // controller functions in Express receive the full HTTP request
 // and a pre-filled out response object to send
@@ -152,12 +150,12 @@ const hostPage2 = (req, res) => {
 // controller functions in Express receive the full HTTP request
 // and a pre-filled out response object to send
 const hostPage3 = (req, res) => {
-    // res.render takes a name of a page to render.
-    // These must be in the folder you specified as views in your main app.js file
-    // Additionally, you don't need .jade because you registered the file type
-    // in the app.js as jade. Calling res.render('index')
-    // actually calls index.jade. A second parameter of JSON can be passed
-    // into the jade to be used as variables with #{varName}
+  // res.render takes a name of a page to render.
+  // These must be in the folder you specified as views in your main app.js file
+  // Additionally, you don't need .jade because you registered the file type
+  // in the app.js as jade. Calling res.render('index')
+  // actually calls index.jade. A second parameter of JSON can be passed
+  // into the jade to be used as variables with #{varName}
   res.render('page3');
 };
 
@@ -239,9 +237,6 @@ const setName = (req, res) => {
 };
 
 
-
-
-
 const setNameDog = (req, res) => {
   // check if the required fields exist
   // normally you would also perform validation
@@ -259,7 +254,7 @@ const setNameDog = (req, res) => {
   const dogData = {
     name,
     age: req.body.age,
-    breed: req.body.breed
+    breed: req.body.breed,
   };
 
   // create a new object of CatModel with the object to save
@@ -281,9 +276,6 @@ const setNameDog = (req, res) => {
 
   return res;
 };
-
-
-
 
 
 // function to handle requests search for a name and return the object
@@ -394,7 +386,11 @@ const updateLastDog = (req, res) => {
   const savePromise = lastAddedDog.save();
 
   // send back the name as a success for now
-  savePromise.then(() => res.json({ name: lastAddedDog.name, age: lastAddedDog.age, breed: lastAddedDog.breed }));
+  savePromise.then(() => res.json({
+    name: lastAddedDog.name,
+    age: lastAddedDog.age,
+    breed: lastAddedDog.breed,
+  }));
 
   // if save error, just return an error for now
   savePromise.catch((err) => res.status(500).json({ err }));
@@ -414,7 +410,6 @@ const notFound = (req, res) => {
     page: req.url,
   });
 };
-
 
 
 // export the relevant public controller functions
