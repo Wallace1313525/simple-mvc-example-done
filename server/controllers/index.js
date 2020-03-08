@@ -3,6 +3,7 @@ const models = require('../models');
 
 // get the Cat model
 const Cat = models.Cat.CatModel;
+const Dog = models.Dog.DogModel;
 
 // default fake data so that we have something to work with until we make a real Cat
 const defaultData = {
@@ -10,8 +11,15 @@ const defaultData = {
   bedsOwned: 0,
 };
 
+const defaultDataDog = {
+  name: 'unknown',
+  age: 0,
+  breed: 'mutt'
+};
+
 // object for us to keep track of the last Cat we made and dynamically update it sometimes
 let lastAdded = new Cat(defaultData);
+let lastAddedDog = new Dog(defaultDataDog);
 
 // function to handle requests to the main page
 // controller functions in Express receive the full HTTP request
